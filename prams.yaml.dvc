@@ -2,4 +2,4 @@ outs:
 - md5: ca5b9da888ddfd770c11f12433f0abd2
   size: 100
   hash: md5
-  path: pramss.yaml
+  path: prams.yaml
