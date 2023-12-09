@@ -44,12 +44,12 @@ def evaluate(model,X,y,split,live,save_path):
 
      )
      # ... and confusion matrix plot
-     live.log_sklearn_plot(
-        "confusion_matrix",
-        y,
-        prediction_by_class.argmax(-1),
-        name=f"cm/{split}",
-         )
+    #  live.log_sklearn_plot(
+    #     "confusion_matrix",
+    #     y,
+    #     prediction_by_class.argmax(-1),
+    #     name=f"cm/{split}",
+    #      )
      
 def save_importance_plot(live, model, feature_names):
     """
