@@ -35,7 +35,7 @@ def main():
 
     curr_dir = pathlib.Path(__file__)
     home_dir = curr_dir.parent.parent.parent
-    params_file = home_dir.as_posix() + '/params.yaml'
+    params_file = home_dir.as_posix() + '/prams.yaml'
     params = yaml.safe_load(open(params_file))["make_dataset"]
 
     input_file = sys.argv[1]
