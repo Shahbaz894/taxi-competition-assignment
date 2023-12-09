@@ -25,6 +25,8 @@ def evaluate(model,X,y,split,live,save_path):
      predictions=prediction_by_class[:,1]
      # Use dvclive to log a few simple metrics...
      avg_prec=metrics.roc_auc_score(y,predictions)
+      # Use roc_auc instead of roc_auc_score
+     roc_auc = metrics.roc_auc_score(y, prediction_by_class)
      if not live.summary:
           live.summary={'avg_prec':{},'roc_auc':{}}
      live.summary["avg_prec"][split] = avg_prec
@@ -45,7 +47,7 @@ def evaluate(model,X,y,split,live,save_path):
      live.log_sklearn_plot(
         "confusion_matrix",
         y,
-        predictions_by_class.argmax(-1),
+        prediction_by_class.argmax(-1),
         name=f"cm/{split}",
          )
      

@@ -1,8 +1,8 @@
 stages:
   make_dataset:
-    cmd: python .\src\data\make_dataset.py  .\data\raw\NYC.csv
+    cmd: python .\src\data\make_dataset.py  .\data\raw\placement.csv
     deps:
-      - .\data\raw\NYC.csv
+      - .\data\raw\placement.csv
       - .\src\data\make_dataset.py
     params:
       - make_dataset.test_split
@@ -47,8 +47,8 @@ metrics:
         dvclive\plots\sklearn\cm\test.json: predicted
 
   - Precision-Recall:
-      template: simple
-      x: recall
-      y:
-        dvclive\plots\sklearn\prc\train.json: precision
-        dvclive\plots\sklearn\prc\test.json: precision
+    template: simple
+    x: recall
+    y:
+      dvclive\plots\sklearn\prc\train.json: precision
+      dvclive\plots\sklearn\prc\test.json: precision
