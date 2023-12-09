@@ -4,6 +4,7 @@ import yaml
 import sys
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import datetime
 
 def load_data(data_path):
     # Load your dataset from a given path
@@ -15,11 +16,20 @@ def split_data(df, test_split, seed):
     train, test = train_test_split(df, test_size=test_split, random_state=seed)
     return train, test
 
+# def save_data(train, test, output_path):
+#     # Save the split datasets to the specified output path
+#     pathlib.Path(output_path).mkdir(parents=True, exist_ok=True)
+#     train.to_csv(output_path + '/train.csv', index=False)
+#     test.to_csv(output_path + '/test.csv', index=False)
 def save_data(train, test, output_path):
-    # Save the split datasets to the specified output path
-    pathlib.Path(output_path).mkdir(parents=True, exist_ok=True)
-    train.to_csv(output_path + '/train.csv', index=False)
-    test.to_csv(output_path + '/test.csv', index=False)
+    # Create a unique output directory based on a timestamp
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    unique_output_path = f"{output_path}/split_data_{timestamp}"
+
+    # Save the split datasets to the unique output path
+    pathlib.Path(unique_output_path).mkdir(parents=True, exist_ok=True)
+    train.to_csv(f"{unique_output_path}/train.csv", index=False)
+    test.to_csv(f"{unique_output_path}/test.csv", index=False)
 
 def main():
 
