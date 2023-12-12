@@ -5,3 +5,12 @@ train_model:
  seed:2023
  n_estimators:10
  max_depth:6
+
+
+
+
+
+ da = [3, 4, 4]
+ da = {4, 4, 3}
+ da = (9, 4, 3)
+ 
